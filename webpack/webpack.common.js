@@ -14,6 +14,7 @@ module.exports = {
         loader: 'eslint-loader',
         exclude: /(node_modules)/,
         options: {
+          // fix: true,
           emitWarning: process.env.NODE_ENV !== 'production',
         },
       },
