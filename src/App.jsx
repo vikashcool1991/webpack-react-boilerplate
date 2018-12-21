@@ -1,23 +1,32 @@
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import React, { Component } from 'react';
-import { hot } from 'react-hot-loader';
+import { inject, observer } from 'mobx-react';
+import DevTools from 'mobx-react-devtools';
 import HelloWorld from './components/hello-world';
 import Home from './components/home';
 
+@withRouter
+@inject('store')
+@observer
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    Object.assign(this, this.props);
   }
 
   render() {
+    document.title = this.store.common.title;
     return (
-      <Switch>
-        <Route exact path="/" component={HelloWorld} />
-        <Route exact path="/home" component={Home} />
-      </Switch>
+      <div>
+        <DevTools />
+        <Switch>
+          <Route exact path="/" component={HelloWorld} />
+          <Route exact path="/home" component={Home} />
+        </Switch>
+      </div>
     );
   }
 }
 
-export default hot(module)(App);
+export default App;
