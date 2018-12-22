@@ -4,7 +4,7 @@ import { observable, action, reaction } from 'mobx';
 export default class Common {
   @observable title;
 
-  @observable appLoaded = false;
+  @observable appLoaded = true;
 
   @observable token = window.localStorage.getItem('jwt');
 

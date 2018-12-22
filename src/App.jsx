@@ -27,7 +27,6 @@ class App extends Component {
     super(props);
     this.state = {};
     Object.assign(this, this.props);
-    this.store.common.setAppLoaded();
   }
 
   render() {

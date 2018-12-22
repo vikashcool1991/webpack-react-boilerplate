@@ -25,6 +25,6 @@ const renderApp = () => {
 };
 renderApp();
 if (module.hot) {
-  module.hot.accept(() => renderApp(App));
+  module.hot.accept(() => renderApp());
 }
 registerServiceWorker();
